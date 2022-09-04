@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.amber.mapper.AccountMapper">
+  <resultMap id="BaseResultMap" type="cn.com.amber.entity.Account">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="account_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="account_no" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="balance" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="available_balance" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="gmt_created" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="modifier" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="gmt_modified" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, account_name, account_no, balance, available_balance,
+    creator, gmt_created, modifier, gmt_modified
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from account_0000
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectByAccountNo" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from account_0000
+    where account_no = #{accountNo,jdbcType=VARCHAR}
+  </select>
+</mapper>
