@@ -11,6 +11,14 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
   main:
     allow-bean-definition-overriding: true
+  shardingsphere:
+    datasource:
+      names: amber_ds_00,amber_ds_01
+      amber_ds_00:
+        type: com.alibaba.druid.pool.DruidDataSource
+
+
+
 
 server:
   port: 8081

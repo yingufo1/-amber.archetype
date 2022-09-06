@@ -8,6 +8,7 @@
       <arg column="account_no" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="balance" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
       <arg column="available_balance" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="frozen_balance" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
       <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="gmt_created" javaType="java.util.Date" jdbcType="TIMESTAMP" />
       <arg column="modifier" javaType="java.lang.String" jdbcType="VARCHAR" />
@@ -15,19 +16,27 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    id, account_name, account_no, balance, available_balance,
+    id, account_name, account_no, balance, available_balance,frozen_balance,
     creator, gmt_created, modifier, gmt_modified
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from account_0000
+    from account
     where id = #{id,jdbcType=BIGINT}
   </select>
   <select id="selectByAccountNo" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
-    from account_0000
+    from t_account
     where account_no = #{accountNo,jdbcType=VARCHAR}
   </select>
+  <insert id="insert" parameterType="cn.com.amber.entity.Account">
+    insert into t_account (account_name, account_no, balance, available_balance,frozen_balance,
+    creator, gmt_created, modifier, gmt_modified)
+    values (#{accountName,jdbcType=VARCHAR}, #{accountNo,jdbcType=VARCHAR},
+    #{balance,jdbcType=DECIMAL}, #{availableBalance,jdbcType=DECIMAL}, #{frozenBalance,jdbcType=DECIMAL}, #{creator,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP},
+    #{modifier,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}
+    )
+  </insert>
 </mapper>
