@@ -27,9 +27,9 @@ amber项目的微服务骨架.基于spring-boot和spring cloud部分组件(Feige
 controller：请求的入口，发布基于http的接口API</br>
 endpoint：端口，包括回调、消息消费者、生产者等入口和出口</br>
 ## 领域层
-entity：业务实体，一般与数据库表对映。其目录下的对象基本上是贫血模型的POJO，也可以加入一些简单的实体行为
-service：业务实体的复杂的行为可以用service封装。entity+service可以看做是一个实体的充血模型的完整实现。
-biz:复杂业务逻辑的实现，可能需要多个业务实体共同完成的业务逻辑在这里实现
+entity：业务实体，一般与数据库表对映。其目录下的对象基本上是贫血模型的POJO，也可以加入一些简单的实体行为</br>
+service：业务实体的复杂的行为可以用service封装。entity+service可以看做是一个实体的充血模型的完整实现。</br>
+biz:复杂业务逻辑的实现，可能需要多个业务实体共同完成的业务逻辑在这里实现</br>
 mapper：mybatis的dao接口或实现
 
 
