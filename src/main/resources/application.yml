@@ -1,0 +1,58 @@
+spring:
+  application:
+    name: amber-archetype #todo:在这里修改为你的应用名
+  cloud: # 配置中心地址，需要换成spring-config或其他
+    config:
+  mvc:
+    date-format: yyyy-MM-dd HH:mm:ss
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  main:
+    allow-bean-definition-overriding: true
+
+server:
+  port: 8080  #应用访问端口，如果在多主机或者多容器部署不需要改
+  servlet:
+    context-path: /${spring.application.name}  #应用访问路径，与spring保持一致，尽量不要改
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://139.9.179.180:8761/eureka,http://139.9.179.180:8762/eureka
+    healthcheck:
+      enabled: true
+    fetchRegistry: true
+
+#apollo配置
+app:
+  id: ${spring.application.name}  #apollo app-id，创建apollo新应用时与应用名保持一致，则不需要修改。否则，改为apollo的应用名
+apollo:
+  cacheDir: /opt/data/                       #配置本地配置缓存目录
+  cluster: default                           #指定使用哪个集群的配置
+  meta: http://82.157.252.130:8080        #DEV环境配置中心地址
+  autoUpdateInjectedSpringProperties: true
+  bootstrap:
+    enabled: true
+    namespaces: OID1.database,application
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  refresh:
+    enabled: false
+ribbon:
+  ConnectTimeout: 30000
+  ReadTimeout: 600000
+feign:
+  httpclient:
+    enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000

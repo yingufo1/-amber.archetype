@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 只需配置好 log.dir 和 appName 属性-->
 <configuration debug="false">
-    <property name="log.dir" value="/Users/yangying/work/alidata1/admin/${APP_NAME}"/>
+    <property name="log.dir" value="/Users/yangying/work/logs/alidata1/admin/${APP_NAME}"/>
     <property name="appName" value="${APP_NAME}"/>
     <property name="MONITOR_PATTERN"
               value="%d [%X{T}] %-5p [%c] [%F:%L] [trace=%X{X-B3-TraceId:-},span=%X{X-B3-SpanId:-},parent=%X{X-B3-ParentSpanId:-}] - %msg%n"/>
