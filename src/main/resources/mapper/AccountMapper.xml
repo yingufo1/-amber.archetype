@@ -6,6 +6,11 @@
       <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
       <arg column="account_name" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="account_no" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="level" javaType="java.lang.Integer" jdbcType="TINYINT" />
+      <arg column="parent_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="direction" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="status" javaType="java.lang.Integer" jdbcType="TINYINT" />
+      <arg column="forbidden_flag" javaType="java.lang.Integer" jdbcType="TINYINT" />
       <arg column="balance" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
       <arg column="available_balance" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
       <arg column="frozen_balance" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
@@ -13,30 +18,31 @@
       <arg column="gmt_created" javaType="java.util.Date" jdbcType="TIMESTAMP" />
       <arg column="modifier" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="gmt_modified" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="is_deleted" javaType="java.lang.String" jdbcType="CHAR" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    id, account_name, account_no, balance, available_balance,frozen_balance,
-    creator, gmt_created, modifier, gmt_modified
+    id, account_name, account_no,level,parent_id,direction,status,forbidden_flag, balance, available_balance,frozen_balance,
+    creator, gmt_created, modifier, gmt_modified,is_deleted
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from account
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT} AND is_deleted='N'
   </select>
   <select id="selectByAccountNo" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from t_account
-    where account_no = #{accountNo,jdbcType=VARCHAR}
+    where account_no = #{accountNo,jdbcType=VARCHAR} AND is_deleted='N'
   </select>
   <insert id="insert" parameterType="cn.com.amber.entity.Account">
-    insert into t_account (account_name, account_no, balance, available_balance,frozen_balance,
-    creator, gmt_created, modifier, gmt_modified)
-    values (#{accountName,jdbcType=VARCHAR}, #{accountNo,jdbcType=VARCHAR},
-    #{balance,jdbcType=DECIMAL}, #{availableBalance,jdbcType=DECIMAL}, #{frozenBalance,jdbcType=DECIMAL}, #{creator,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP},
-    #{modifier,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP}
-    )
+    insert into t_account (account_name, account_no,level,parent_id,direction,status,forbidden_flag, balance, available_balance
+    ,frozen_balance,creator, gmt_created, modifier, gmt_modified)
+    values (#{accountName,jdbcType=VARCHAR}, #{accountNo,jdbcType=VARCHAR},#{level,jdbcType=TINYINT},#{parentId,jdbcType=BIGINT}
+    ,#{direction,jdbcType=CHAR},#{status,jdbcType=TINYINT},#{forbiddenFlag,jdbcType=TINYINT},#{balance,jdbcType=DECIMAL},
+    #{availableBalance,jdbcType=DECIMAL}, #{frozenBalance,jdbcType=DECIMAL}, #{creator,jdbcType=VARCHAR}, #{gmtCreated,jdbcType=TIMESTAMP},
+    #{modifier,jdbcType=VARCHAR}, #{gmtModified,jdbcType=TIMESTAMP})
   </insert>
 </mapper>

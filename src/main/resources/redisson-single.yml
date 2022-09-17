@@ -1,0 +1,1 @@
+singleServerConfig:  address: "redis://82.157.252.130:7000"threads: 6nettyThreads: 6transportMode: "NIO"
