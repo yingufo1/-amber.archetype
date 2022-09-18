@@ -113,6 +113,13 @@
         </dependency>
         <!-- db connector begin-->
 
+        <!-- rocket mq client begin-->
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-client</artifactId>
+            <version>4.9.4</version>
+        </dependency>
+        <!-- rocket mq client end -->
         <!-- common begin-->
         <dependency>
             <groupId>junit</groupId>
