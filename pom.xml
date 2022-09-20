@@ -151,6 +151,11 @@
             <artifactId>fastjson</artifactId>
             <version>2.0.12</version>
         </dependency>
+        <dependency>
+            <groupId>cn.com.amber</groupId>
+            <artifactId>amber-commons</artifactId>
+            <version>0.0.2-SNAPSHOT</version>
+        </dependency>
         <!-- common end -->
     </dependencies>
     <dependencyManagement>

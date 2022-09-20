@@ -35,7 +35,7 @@ apollo:
   autoUpdateInjectedSpringProperties: true
   bootstrap:
     enabled: true
-    namespaces: OID1.database,application
+    namespaces: OID1.database,application,OID1.middleware
 
 endpoints:
   restart:

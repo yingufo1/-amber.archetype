@@ -1,0 +1,1 @@
+package cn.com.amber.events;/** * 事件序列化器 * * @author yangying * @version 1.0 * @since 2022/9/20 **/public interface EventSerializer {    /**     * 序列化事件     * @param event     * @return     */    public String serialize(Event event);    /**     * 反序列化     * @param serializeStr     * @return     */    public Event deserialize(String serializeStr);}

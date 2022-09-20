@@ -40,12 +40,14 @@ mapper：mybatis的dao接口或实现
 
 |版本|日期|组件|集成笔记|
 |--|--|--|--|
-|1.0|已完成|shardingshpere-jdbc|https://note.youdao.com/s/WuPbLXRE|
-|||Eureka|https://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/1.2.7.RELEASE/|
+|1.0|已完成|shardingshpere-jdbc[5]|https://note.youdao.com/s/WuPbLXRE|
+|||Eureka[spring-cloud-starter-netflix-eureka-server:2.2.0.RELEASE]|https://cloud.spring.
+io/spring-cloud-static/spring-cloud-netflix/1.2.7.RELEASE/|
 |||Feign/OpenFeign|https://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/1.2.7.RELEASE/|
-|||Apollo|https://note.youdao.com/s/HydEd09A|
-|2.0|0922|redis|集群搭建：https://note.youdao.com/s/VgjyQj1U</br>redisson https://note.youdao.com/s/S8jGYkZE</br>redission集群问题解决：参考https://note.youdao.com/s/JNvUZiq9 中四层反向代理部分|
-|||rocketMq|https://note.youdao.com/s/UWf48PS6|
+|||Apollo[2.1.0-SNAPSHOT]|https://note.youdao.com/s/HydEd09A|
+|2.0|0922|redis[7.0.4]|集群搭建：https://note.youdao.com/s/VgjyQj1U</br>redisson https://note.youdao.
+com/s/S8jGYkZE</br>redission集群问题解决：参考https://note.youdao.com/s/JNvUZiq9 中四层反向代理部分|
+|||rocketMq[4.9.4]|https://note.youdao.com/s/UWf48PS6|
 |||熔断、限流||
 |||安全(认证和授权)||
 |3.0|1007|ETL(cancl+flink+es)||
