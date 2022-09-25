@@ -46,7 +46,7 @@ mapper：mybatis的dao接口或实现
 |||Apollo[2.1.0-SNAPSHOT]|https://note.youdao.com/s/HydEd09A|
 |2.0|0922[计划变更，插入自动化脚本和重构公共接口处理的内容，要改到0926了]|redis[7.0.4]|集群搭建：https://note.youdao.com/s/VgjyQj1U</br>redisson https://note.youdao.com/s/S8jGYkZE</br>redission集群问题解决：参考https://note.youdao.com/s/JNvUZiq9 中四层反向代理部分|
 |||rocketMq[4.9.4]|https://note.youdao.com/s/UWf48PS6|
-|||自动化发布脚本|done|
+|||自动化发布脚本|https://github.com/yingufo1/amber.archetype/blob/main/deploy/%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E8%84%9A%E6%9C%AC%E8%AF%B4%E6%98%8E.MD|
 |||重构优化接口公共处理：</BR>- 请求响应日志AOP </BR>- 错误码定义 </BR>- 异常定义，不要直接抛出运行时异常 </BR>- 请求/响应DTO优化 </BR>- 参数校验错误返回统一处理，不要让springmvc拦截处理</BR>- MDC|done|
 |||熔断、限流||
 |3.0||安全(认证和授权)||
