@@ -31,7 +31,7 @@ app:
 apollo:
   cacheDir: /opt/data/                       #配置本地配置缓存目录
   cluster: default                           #指定使用哪个集群的配置
-  meta: http://82.157.252.130:8080        #DEV环境配置中心地址
+  meta: http://43.143.145.14:8080        #DEV环境配置中心地址
   autoUpdateInjectedSpringProperties: true
   bootstrap:
     enabled: true

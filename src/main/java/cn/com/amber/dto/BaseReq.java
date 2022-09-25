@@ -1,1 +1,0 @@
-package cn.com.amber.dto;import lombok.Getter;/** * 基础请求类 * * @author yangying * @version 1.0 * @since 2022/9/14 **/@Getterpublic abstract class BaseReq {    private final String requestId;    protected BaseReq(String requestId) {        this.requestId = requestId;    }}
