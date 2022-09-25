@@ -9,7 +9,7 @@ send_user "step 4.1:更新远程机器start.sh脚本\r\n"
 send_user "\r\n"
 spawn scp "/Users/yangying/work/source/github/amber-project/startup.sh" root@${remote_ip}:/opt/
 expect "*password:"
-send "652637750Ying\r"
+send "*******\r"
 interact
 send_user "\r\n"
 
@@ -18,14 +18,14 @@ if {$reupload == true} {
     send_user "\r\n"
     spawn scp "$dir/$projectname.jar" root@${remote_ip}:/opt/
     expect "*password:"
-    send "652637750Ying\r"
+    send "*************\r"
     interact
 }
 
 send_user "step 5:restart remote services"
 spawn ssh root@${remote_ip}
 expect "*password:"
-send "652637750Ying\r"
+send "*************\r"
 expect "*Last login:"
 send "cd /opt\r"
 send "/opt/startup.sh $projectname\r"
